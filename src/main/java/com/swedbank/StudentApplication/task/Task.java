@@ -19,39 +19,34 @@ import java.util.Date;
 @Data
 public class Task {
 
-
     @Id
     @Column(name = "id", updatable = false, nullable = false)
     @SequenceGenerator(name = "task_generator", sequenceName = "task_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "task_generator")
     private long id;
 
-
     @NotNull
     @NotBlank
     @Column(name = "short_desc")
     private String shortDesc;
 
-
     private String details;
-
 
     @NotNull
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", timezone = "Europe/Vilnius")
     @Column(name = "start_date")
     private Date startDate;
 
-
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", timezone = "Europe/Vilnius")
     @Column(name = "end_date")
     private Date endDate;
 
-//    @ManyToOne
-//    @JoinColumn(name = "group_id", nullable = true)
-//    @JsonIgnore
-//    @ToString.Exclude
-//    @EqualsAndHashCode.Exclude.
-//    private Group group;
+    @ManyToOne
+    @JoinColumn(name = "group_id", nullable = true)
+    @JsonIgnore
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Group group;
 
     /**
      * Instantiates a new task.

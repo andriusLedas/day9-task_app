@@ -14,6 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Table(name = "\"group\"")
 public class Group implements Serializable {
+
     @Id
     @Column(name = "id", updatable = false, nullable = false)
     @SequenceGenerator(name = "group_generator", sequenceName = "group_sequence", allocationSize = 1)
@@ -30,12 +31,11 @@ public class Group implements Serializable {
     @EqualsAndHashCode.Exclude
     private Set<Person> persons;
 
-    //HOME WORK
-    //@OneToMany(mappedBy="group", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
-    //@JsonIgnore
-    //@ToString.Exclude
-    //@EqualsAndHashCode.Exclude
-    //private Set<Task> tasks;
+    @OneToMany(mappedBy = "group", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
+    @JsonIgnore
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<Task> tasks;
 
     public Group(@NonNull String name, String details, Set<Person> persons) {
         super();

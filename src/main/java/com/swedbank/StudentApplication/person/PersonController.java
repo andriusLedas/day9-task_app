@@ -6,7 +6,6 @@ import com.swedbank.StudentApplication.person.exception.PersonNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -83,7 +82,6 @@ public class PersonController {
     public ResponseEntity<?> removePersonFromGroup(@PathVariable long pid, @PathVariable long id) throws PersonNotFoundException{
         Person person = service.getById(pid);
         Group group = groupService.findById(id);
-
         Set<Group> groups = person.getGroups();
 
         if (groups.contains(group)) {

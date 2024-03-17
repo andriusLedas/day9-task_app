@@ -66,6 +66,4 @@ public class Person implements Serializable {
     @EqualsAndHashCode.Exclude
     private Set<Group> groups;
 
-    //TODO: play with the annotation properties and see what changes;
-
 }
