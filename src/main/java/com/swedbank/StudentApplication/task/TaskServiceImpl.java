@@ -34,6 +34,10 @@ public class TaskServiceImpl implements  TaskService{
     public Task save(Task task) throws TaskExistsException {
         return repository.save(task);
     }
+    @Override
+    public void saveAndFlush(Task task) {
+        repository.saveAndFlush(task);
+    }
 
     @Override
     public Task update(Task task) throws TaskNotFoundException {
@@ -60,4 +64,5 @@ public class TaskServiceImpl implements  TaskService{
     public void deleteAll() {
         repository.deleteAll();
     }
+
 }
