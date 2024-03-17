@@ -1,4 +1,4 @@
---Swedbank demo database
+--Academy demo database
 
 --Person table
 CREATE TABLE person

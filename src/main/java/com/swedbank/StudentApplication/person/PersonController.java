@@ -20,9 +20,7 @@ import java.util.Set;
 @RequestMapping("api/persons")
 public class PersonController {
     private static Logger log = LoggerFactory.getLogger(PersonController.class);
-
     private PersonService service;
-
     private GroupService groupService;
 //    @Value("${value.from.file}")
 //    private String val;
@@ -57,7 +55,6 @@ public class PersonController {
 
     @DeleteMapping("{pid}")
     public ResponseEntity<Void> deletePerson(@PathVariable("pid") Long pid) throws PersonNotFoundException{
-
             service.delete(pid);
             return ResponseEntity.ok().build();
 
